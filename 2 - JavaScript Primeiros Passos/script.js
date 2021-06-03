@@ -1,11 +1,12 @@
 
-var nome = '';
+function adicionar(...numeros){
 
+    let total = numeros.reduce((total, proximo) =>{
+      return total + proximo;
+    });
 
-if( typeof localStorage.nome == 'undefined'){
-  localStorage.nome = prompt("Digite seu nome?");
+    console.log(total);
 }
 
-nome = localStorage.nome;
 
-document.getElementById('nome').innerHTML = nome;
+adicionar(1,2,3,4,5);
