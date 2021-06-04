@@ -1,47 +1,38 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Equipe = (props) => {
-  return (
-    <div>
-      <Sobre nome={props.nome} cargo={props.cargo} idade={props.idade}/>
-      <Social facebook={props.facebook}/>
-      <hr />
-    </div>
-  );
-}
+class App extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      hora: '00:00:00'
+    };
+  }
+
+  componentDidMount(){
+
+    setInterval(()=>{
+      this.setState({hora: new Date().toLocaleTimeString()})
+    },1000);
+
+  }
 
 
-const Sobre = (props) => {
-  return (
+  componentDidUpdate(){
+    console.log('Atualizou!!!');
+  }
+
+  
+
+  render() {
+    return (
+
       <div>
-        <h2>Olá, sou o {props.nome}</h2>
-        <h3>Cargo: {props.cargo}</h3>
-        <h3>Idade: {props.idade}</h3>
+        <h1>Meu projeto {this.state.hora}</h1>
       </div>
-  );
-}
 
-
-const Social = (props) => {
-  return (
-    <div>
-      <a href={props.facebook}>Facebook</a>
-      <a>Linkedin</a>
-    </div>
-
-  );
-}
-
-
-
-function App() {
-  return (
-    <div>
-      <h1>Conheça nossa equipe:</h1>
-      <Equipe nome="Gerson" cargo="Programador" idade="30" facebook="https://google.com" />
-      <Equipe nome="Severo" cargo="Arquiteto" idade="30" />
-    </div>
-  );
+    );
+  }
 }
 
 
