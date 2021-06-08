@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import './style.css';
-
 import Routes from './routes';
-
 
 
 
@@ -13,7 +10,7 @@ class App extends Component {
     return (
 
       <div>
-     <Routes/>
+        <Routes/>
       </div>
 
     );
